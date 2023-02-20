@@ -42,7 +42,7 @@ def play_time():
     song = song_box.get(ACTIVE)
     
     # Add Directory Structure + Song Title To Find Song File
-    song = f'musiques/{song}.mp3'
+    song = f'{song}.mp3'
 
     # Load Song With Mutagen
     song_mut = MP3(song)
@@ -105,7 +105,7 @@ def add_song():
     song = filedialog.askopenfilename(initialdir="audio/", title="Choose A Song", filetypes=(("mp3 Files", "*.mp3"), ))
     
     # Strip out the directory info and .mp3 extension from the song name and add it to the listbox
-    song = song.replace("musiques/", "")
+    
     song = song.replace(".mp3", "")
     
     # add song to listbox
@@ -117,7 +117,7 @@ def add_many_songs():
     
     # Loop through song list and replace directory info and mp3 extension
     for song in songs:
-        song = song.replace("musiques/", "")
+        
         song = song.replace(".mp3", "")
         
         # add song to listbox
@@ -144,7 +144,7 @@ def play():
     global stopped
     stopped = False 
     song = song_box.get(ACTIVE)
-    song = f'musiques/{song}.mp3'
+    song = f'{song}.mp3'
     pygame.mixer.music.load(song)
     pygame.mixer.music.play(loops=0)
     
@@ -199,7 +199,7 @@ def next_song():
     song = song_box.get(next_one)
     
     # Add Directory Structure + Song Title To Find Song File
-    song = f'musiques/{song}.mp3'
+    song = f'{song}.mp3'
     
     # Load And Play Song With Pygame Mixer
     pygame.mixer.music.load(song)
@@ -232,7 +232,7 @@ def previous_song():
     song = song_box.get(next_one)
 
     # Add Directory Structure + Song Title To Find Song File
-    song = f'musiques/{song}.mp3'
+    song = f'{song}.mp3'
 
     # Load And Play Song With Pygame Mixer
     pygame.mixer.music.load(song)
@@ -267,7 +267,7 @@ def pause(is_paused):
 def slide(x):
     # slider_label.config(text=f'{int(my_slider.get())} of {int(song_length)}')
     song = song_box.get(ACTIVE)
-    song = f'musiques/{song}.mp3'
+    song = f'{song}'
     
     pygame.mixer.music.load(song)
     pygame.mixer.music.play(loops=0, start=int(my_slider.get()))
@@ -287,7 +287,7 @@ def repeat():
     global stopped
     stopped = False 
     song = song_box.get(ACTIVE)
-    song = f'musiques/{song}.mp3'
+    song = f'{song}.mp3'
     
     pygame.mixer.music.load(song)
     pygame.mixer.music.play(loops=-1)
@@ -317,7 +317,7 @@ def random_song():
     song = song_box.get(next_one)
     
     # Add Directory Structure + Song Title To Find Song File
-    song = f'musiques/{song}.mp3'
+    song = f'{song}.mp3'
     
     # Load And Play Song With Pygame Mixer
     pygame.mixer.music.load(song)
